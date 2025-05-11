@@ -2,7 +2,7 @@ import { customAlphabet } from 'nanoid';
 import prisma from '../prisma.js';
 
 // Define o alfabeto (semelhante ao base36, mas removendo letras confusas)
-const nanoid = customAlphabet('ABCDEFGHJKLMNPQRSTUVWXYZ23456789', 8); // 8 chars legíveis
+const nanoid = customAlphabet('ABCDEFGHJKLMNPQRSTUVWXYZ23456789', 8); 
 
 export async function generateReadableProtocol(prefix = 'TRF') {
   let unique = false;
@@ -16,7 +16,7 @@ export async function generateReadableProtocol(prefix = 'TRF') {
 
     const exists = await prisma.log.findUnique({
       where: {
-        transaction_id: protocol, // Ou use outro campo como `protocol_id` se preferir manter separado
+        transaction_id: protocol, 
       },
     });
 

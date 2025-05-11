@@ -1,7 +1,7 @@
 import express from 'express';
-import { createUser, getUsers, getLojistas, getUserId } from '../../controllers/users/userController.js'; 
-import { depositAmount } from '../../controllers/users/amountController.js'; 
-import { transfer, cancelTransfer } from '../../controllers/users/transferController.js';
+import { createUser, getUsers, getLojistas, getUserId } from '../controllers/users/userController.js'; 
+import { depositAmount } from '../controllers/users/amountController.js'; 
+import { transfer, cancelTransfer } from '../controllers/users/transferController.js';
 import { sendEmail } from '../../integrations/implementations/nodemailer.js'
 
 const userRoutes = express.Router();

@@ -3,6 +3,8 @@
 
 Este repositório contém um projeto de backend desenvolvido com Node.js, usando o Prisma para interagir com o banco de dados MySQL. O objetivo do projeto é estudar e implementar funcionalidades como depósitos, transferências e cancelamento de transferências, além do envio de e-mails com a ajuda do Nodemailer e Mailtrap.
 
+Este repositório é utilizado para fins de estudo pessoal e é inspirado no [desafio do PicPay](https://github.com/PicPay/picpay-desafio-backend).
+
 ## Tecnologias Utilizadas
 
 - **Node.js**: Ambiente de execução para o JavaScript no servidor.
@@ -128,7 +130,3 @@ DATABASE_URL="mysql://root:jurubeba13@localhost:3306/site-estudos"
 ## Testes
 
 Os testes podem ser feitos utilizando o arquivo `app.http`, que contém os exemplos de requisições para testar os endpoints.
-
----
-
-Este repositório é utilizado para fins de estudo pessoal e é inspirado no desafio do PicPay.

@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  name      String  @db.VarChar(100)
+  document  String  @db.VarChar(20)
+  email     String  @unique @db.VarChar(100)
+  password  String  @db.VarChar(255)
+  is_seller Boolean @default(false)
+  amount    Decimal @db.Decimal(10, 2)
+
+  // Relacionamentos
+  logs      Log[]   @relation("UserLogs")
+  received  Log[]   @relation("RecipientLogs")
+}
+
+model Log {
+  log_id                     Int      @id @default(autoincrement())
+  user_id                    Int?     
+  user                       User?    @relation("UserLogs", fields: [user_id], references: [id], onUpdate: Cascade, onDelete: SetNull)
+
+  recipient_id               Int?
+  recipient                  User?    @relation("RecipientLogs", fields: [recipient_id], references: [id], onUpdate: Cascade, onDelete: SetNull)
+
+  user_alteration            String?  @db.VarChar(255)
+  log_type                   String?  @db.VarChar(50)
+  description                String?  @db.VarChar(191)
+  timestamp                  DateTime @default(now())
+  transaction_id             String?  @unique @db.VarChar(255)
+  original_transaction_id   String? @db.VarChar(255)
+  previous_balance           Decimal? @db.Decimal(10, 2)
+  new_balance                Decimal? @db.Decimal(10, 2)
+  ip_address                 String?  @db.VarChar(45)
+  device_info                String?  @db.VarChar(255)
+  status                     String?  @db.VarChar(50)
+  notes                      String?  @db.VarChar(191)
+  transaction_amount         Decimal? @db.Decimal(10, 2)
+  recipient_previous_balance Decimal? @db.Decimal(10, 2)
+  recipient_new_balance      Decimal? @db.Decimal(10, 2)
+}

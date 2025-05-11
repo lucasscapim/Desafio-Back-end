@@ -1,0 +1,74 @@
+### Listar Todos os Usuários
+GET http://localhost:3000/api/users HTTP/1.1
+Content-Type: application/json
+
+###
+
+### Listar Lojistas
+GET http://localhost:3000/api/lojistas HTTP/1.1
+Content-Type: application/json
+
+###
+
+### Pegar Usuário Específico
+GET http://localhost:3000/api/user/id HTTP/1.1
+Content-Type: application/json
+
+###
+
+### Criar Novo Usuário
+POST http://localhost:3000/api/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Lucas Scapim",
+    "email": "lucas@email.com",
+    "password": "senha123",
+    "is_seller": 0
+}
+
+###
+
+### Realizar Depósito
+POST http://localhost:3000/api/deposit HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "1", 
+    "amount": "100.50"
+}
+
+###
+
+### Realizar Transferência
+POST http://localhost:3000/api/transfer HTTP/1.1
+Content-Type: application/json
+
+{
+    "sender": 1,
+    "receiver": 2,
+    "amount": 100
+}
+
+###
+
+### Cancelar Transferência
+POST http://localhost:3000/api/cancel-transfer HTTP/1.1
+Content-Type: application/json
+
+{
+    "protocolCode": "abc123456",
+    "user": 1
+}
+
+###
+
+### Enviar E-mail
+POST http://localhost:3000/api/send-email HTTP/1.1
+Content-Type: application/json
+
+{
+    "to": "user@email.com",
+    "subject": "Assunto do E-mail",
+    "body": "Conteúdo do e-mail."
+}

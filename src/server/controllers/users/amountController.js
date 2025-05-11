@@ -56,7 +56,7 @@ export const depositAmount = async (request, response) => {
                 },
                 log_type: 'DEPOSIT',
                 description: `${userDeposit.name} (${userDeposit.id}) realizou um deposito de ${amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`,
-                transaction_id: await generateReadableProtocol(),
+                transaction_id: await generateReadableProtocol('DEP'),
                 previous_balance: new Decimal(userDeposit.amount),
                 new_balance: new Decimal(newUserBalance),
                 ip_address: ip,

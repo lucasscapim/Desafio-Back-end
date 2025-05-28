@@ -98,11 +98,11 @@ PORT=3000
 
 MAIL_HOST=sandbox.smtp.mailtrap.io
 MAIL_PORT=2525
-MAIL_USER=5ba4e266cc7d01
-MAIL_PASS=691528db10607a
-MAIL_FROM=guido@email.com
+MAIL_USER=user_mailtrap
+MAIL_PASS=password_mailtrap
+MAIL_FROM=mail_mailtrap
 
-DATABASE_URL="mysql://root:jurubeba13@localhost:3306/site-estudos"
+DATABASE_URL="URL"
 ```
 
 - **PORT**: A porta em que o servidor vai rodar.
